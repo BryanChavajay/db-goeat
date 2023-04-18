@@ -31,3 +31,10 @@ SELECT mc.concepto, cd.fecha, mc.total FROM movimiento_caja as mc
 INNER JOIN caja_diaria as cd ON cd.id_caja_diaria = mc.id_caja_diaria
 INNER JOIN tipo_movimiento_caja AS tmc ON tmc.id_tipo_movimiento = mc.id_tipo_movimiento
 WHERE mc.id_tipo_movimiento IN (1,2) AND cd.fecha BETWEEN '1/3/2023' AND '2/3/2023';
+
+/* CONSULTAS PARA OBTENER DATOS DEL USUARIO */
+-- Consulta para buscar a un usuario por su nombre de usuario
+SELECT us.id_usuario, us.nombres, us.contraseña, tu.tipo FROM usuario_tipo AS ut
+INNER JOIN usuarios AS us ON ut.id_usuario = us.id_usuario
+INNER JOIN tipos_usuarios AS tu ON tu.id_tipo_usuario = ut.id_tipo_usuario
+WHERE us.usuario = 'aadmin';

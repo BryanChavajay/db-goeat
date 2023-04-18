@@ -22,6 +22,11 @@ CREATE TABLE usuarios(
 	contraseña VARCHAR(300) NOT NULL
 );
 
+CREATE TABLE tipos_usuarios(
+	id_tipo_usuario SMALLSERIAL PRIMARY KEY NOT NULL,
+	tipo varchar(30)
+);
+
 CREATE TABLE menu(
 	id_platillo SERIAL PRIMARY KEY NOT NULL,
 	platillo VARCHAR(100) NOT NULL,
@@ -101,3 +106,29 @@ CREATE TABLE detalle_venta(
 	FOREIGN KEY (id_platillo) REFERENCES menu(id_platillo),
 	FOREIGN KEY (id_venta) REFERENCES ventas(id_venta)
 );
+
+
+/* Tablas para los trigers */
+CREATE TABLE venta_movimiento_caja(
+	id_venta_movimiento_caja BIGSERIAL PRIMARY KEY NOT NULL,
+	id_venta BIGINT,
+	id_movimiento_caja BIGINT,
+	FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
+	FOREIGN KEY (id_movimiento_caja) REFERENCES movimiento_caja(id_movimiento)
+);
+
+CREATE TABLE gastos_movimiento_caja(
+	id_gasto_movimiento_caja BIGSERIAL PRIMARY KEY NOT NULL,
+	id_gasto BIGINT,
+	id_movimiento_caja BIGINT,
+	FOREIGN KEY (id_gasto) REFERENCES gastos(id_gasto),
+	FOREIGN KEY (id_movimiento_caja) REFERENCES movimiento_caja(id_movimiento)
+);
+
+CREATE TABLE usuario_tipo(
+	id_usuario_tipo SMALLSERIAL PRIMARY KEY NOT NULL,
+	id_usuario UUID,
+	id_tipo_usuario SMALLINT,
+	FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+	FOREIGN KEY (id_tipo_usuario) REFERENCES tipos_usuarios(id_tipo_usuario)
+)
