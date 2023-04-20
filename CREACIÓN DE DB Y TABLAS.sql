@@ -14,17 +14,18 @@ CREATE DATABASE goeat
     IS_TEMPLATE = False;
 
 /* Comienza la declaración de tablas sin relación */
-CREATE TABLE usuarios(
-	id_usuario uuid DEFAULT gen_random_uuid() PRIMARY KEY UNIQUE,
-	nombres VARCHAR(50) NOT NULL,
-	apellidos VARCHAR(50) NOT NULL,
-	usuario VARCHAR(50) NOT NULL,
-	contraseña VARCHAR(300) NOT NULL
-);
-
 CREATE TABLE tipos_usuarios(
 	id_tipo_usuario SMALLSERIAL PRIMARY KEY NOT NULL,
 	tipo varchar(30)
+);
+
+CREATE TABLE usuarios(
+	id_usuario uuid DEFAULT gen_random_uuid() PRIMARY KEY UNIQUE,
+	nombre VARCHAR(50) NOT NULL,
+	usuario VARCHAR(50) NOT NULL,
+	contraseña VARCHAR(300) NOT NULL,
+	id_tipo_usuario SMALLINT NOT NULL,
+	FOREIGN KEY (id_tipo_usuario) REFERENCES tipos_usuarios(id_tipo_usuario)
 );
 
 CREATE TABLE menu(
@@ -124,11 +125,3 @@ CREATE TABLE gastos_movimiento_caja(
 	FOREIGN KEY (id_gasto) REFERENCES gastos(id_gasto),
 	FOREIGN KEY (id_movimiento_caja) REFERENCES movimiento_caja(id_movimiento)
 );
-
-CREATE TABLE usuario_tipo(
-	id_usuario_tipo SMALLSERIAL PRIMARY KEY NOT NULL,
-	id_usuario UUID,
-	id_tipo_usuario SMALLINT,
-	FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
-	FOREIGN KEY (id_tipo_usuario) REFERENCES tipos_usuarios(id_tipo_usuario)
-)

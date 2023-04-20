@@ -11,9 +11,9 @@ INSERT INTO proveedores (nombre, telefono) VALUES ('Otros','00000000');
 
 /* Empezamos con datos de prueba */
 /* ALERTA: SOLO UTILIZAR PARA PRUEBA, NO PARA PRODUCCIÓN */
-INSERT INTO usuarios (nombres, apellidos, contraseña, usuario)
-	VALUES ('Admin', 'Admin', 'secreto1234', 'aadmin');
 INSERT INTO tipos_usuarios(tipo) VALUES ('Administrador'), ('Invitado');
+INSERT INTO usuarios (nombre, contraseña, usuario, id_tipo_usuario)
+	VALUES ('Carmen Ajcalon', 'secreto1234', 'admin', 1);
 INSERT INTO menu (platillo, precio) VALUES ('Carne asada', 40), ('Arroz frito', 35),
 	('Menu del dia', 25), ('Fresco de piña', 15), ('Horchata', 10);
 INSERT INTO meseros (nombre) VALUES ('Roberto'), ('Carlos'),
@@ -38,5 +38,3 @@ INSERT INTO gastos (numero_documento, fecha, concepto, total, id_proveedor) VALU
 	('9645', '2/3/2023', 'Compra de agua', 30, 2), ('6145', '3/3/2023', 'Compra de vegetales', 25, 3),
 	(null, '3/3/2023', 'Pago Planilla', 100, null);
 
-/* Asignar un tipo de usuario a un usuario */
--- INSERT INTO usuario_tipo(id_usuario, id_tipo_usuario) VALUES ('colocar_aqui_uuid_usuario', 1);

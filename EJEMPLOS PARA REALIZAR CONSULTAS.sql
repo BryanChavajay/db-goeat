@@ -1,10 +1,4 @@
 /* EJEMPLOS PARA REALIZAR CONSULTAS */
-/* CONSULTAS PARA TRAER DATOS DE LA TABLA USUARIOS */
--- Consulta para traer los datos de todos los usuarios
-SELECT * FROM usuarios;
-
--- Consulta para traer los datos de un usuario específico
-SELECT nombres, apellidos, usuario, contraseña FROM usuarios WHERE id_usuario='1cb22a65-6bea-4624-a684-2dfaa66cf0d3';
 
 /* CONSULTAS SOBRE LAS VENTAS */
 -- Consulta para traer todos las ventas existentes
@@ -34,7 +28,6 @@ WHERE mc.id_tipo_movimiento IN (1,2) AND cd.fecha BETWEEN '1/3/2023' AND '2/3/20
 
 /* CONSULTAS PARA OBTENER DATOS DEL USUARIO */
 -- Consulta para buscar a un usuario por su nombre de usuario
-SELECT us.id_usuario, us.nombres, us.contraseña, tu.tipo FROM usuario_tipo AS ut
-INNER JOIN usuarios AS us ON ut.id_usuario = us.id_usuario
-INNER JOIN tipos_usuarios AS tu ON tu.id_tipo_usuario = ut.id_tipo_usuario
-WHERE us.usuario = 'aadmin';
+SELECT us.id_usuario, us.nombre, us.usuario, us.contraseña, tu.tipo FROM usuarios AS us
+INNER JOIN tipos_usuarios AS tu ON tu.id_tipo_usuario = us.id_tipo_usuario
+WHERE us.usuario = 'admin'
