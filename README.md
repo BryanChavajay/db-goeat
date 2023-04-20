@@ -143,8 +143,8 @@ Se puede obtener un json con los datos que conforman una venta en especifico rea
             "cantidad": 20,
             "subtotal": 120.00,
             "observaciones": "updateHOY"
-        }
-    ]
+        }
+    ]
 }
 ```
 
