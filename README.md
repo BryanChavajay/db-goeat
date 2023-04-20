@@ -3,37 +3,7 @@
 ## Introducción
 La API que sea ha desarrollado para el proyecto _GOEAT_ es una **REST API** por lo que se cuentan con diferentes rutas para cada modulo.
 
-## 1. Dashboard
-### Dashboard schema
-El modulo de Dashboard muestra 5 diferentes datos 
-| Key              | Type  | Description                                                |
-| ---------------- | ----- | ---------------------------------------------------------- |
-| ingresos         | Money | Muestra el total de los ingresos del mes en curso          |
-| egresos          | Money | Muestra el total de los egresos del mes en curso           |
-| ganancias        | Money | Muestra el total de las ganancias del mes en curso         |
-| saldo            | Money | Muestra el total del dinero disponible actualmente en caja |
-| gananciasAnuales | Array | Muestra el total de las ganancias del año en curso         |
-
-#### Obtener todo los datos
-Se puede acceder a todos los datos del dashboard utilizando:
-
-**GET** ```${}/api/dashboard/```
-``` json
-{
-    "ingresos": 500,
-    "egresos": 300,
-    "ganancias": 200,
-    "saldo": 200,
-    "gananciasAnuales":
-    [
-        "enero": 100, 
-        "febrero": 100, 
-        // ...
-    ]
-}
-```
-
-## 2. Ventas
+## 1. Ventas
 ### Esquema de una venta
 Para la venta y los datos que esta implica se cuentan con los siguientes campos
 | Key           | Type   | Description                                                                                          |
@@ -178,5 +148,35 @@ Para registrar una venta se debe tener en cuenta el esquema de ventas y el esque
       "Observaciones": "xD"
     }
   ]
+}
+```
+
+## 2. Dashboard
+### Dashboard schema
+El modulo de Dashboard muestra 5 diferentes datos 
+| Key              | Type  | Description                                                |
+| ---------------- | ----- | ---------------------------------------------------------- |
+| ingresos         | Money | Muestra el total de los ingresos del mes en curso          |
+| egresos          | Money | Muestra el total de los egresos del mes en curso           |
+| ganancias        | Money | Muestra el total de las ganancias del mes en curso         |
+| saldo            | Money | Muestra el total del dinero disponible actualmente en caja |
+| gananciasAnuales | Array | Muestra el total de las ganancias del año en curso         |
+
+#### Obtener todo los datos
+Se puede acceder a todos los datos del dashboard utilizando:
+
+**GET** ```${}/api/dashboard/```
+``` json
+{
+    "ingresos": 500,
+    "egresos": 300,
+    "ganancias": 200,
+    "saldo": 200,
+    "gananciasAnuales":
+    [
+        "enero": 100, 
+        "febrero": 100, 
+        // ...
+    ]
 }
 ```
