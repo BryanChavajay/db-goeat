@@ -62,12 +62,13 @@ CREATE TABLE caja_diaria(
 	id_caja_diaria BIGSERIAL PRIMARY KEY NOT NULL,
 	fecha DATE NOT NULL,
 	saldo_inicial MONEY NOT NULL,
-	saldo_final MONEY
+	saldo_final MONEY,
+	estado BOOLEAN
 );
 
 /* Comienza la declaración de tablas con relaciones */
 CREATE TABLE movimiento_caja(
-	id_movimiento SERIAL PRIMARY KEY NOT NULL,
+	id_movimiento BIGSERIAL PRIMARY KEY NOT NULL,
 	id_tipo_movimiento SMALLINT,
 	id_caja_diaria BIGINT,
 	concepto VARCHAR(255),
