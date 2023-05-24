@@ -7,7 +7,7 @@ INSERT INTO tipo_movimiento_caja (tipo) VALUES ('Gasto');
 INSERT INTO tipo_movimiento_caja (tipo) VALUES ('Otros ingresos');
 INSERT INTO tipo_movimiento_caja (tipo) VALUES ('Otros egresos');
 -- EL PRIMER PROVEEDOR ES OTRO
-INSERT INTO proveedores (nombre, telefono) VALUES ('Otros','00000000');
+INSERT INTO proveedores (nombre, telefono) VALUES ('Sin proveedor','00000000'), ('Otros','00000000');
 -- INSERTAMOS LOS TIPOS DE USUARIOS DEL SISTEMA
 INSERT INTO tipos_usuarios(tipo) VALUES ('Administrador'), ('Invitado');
 
